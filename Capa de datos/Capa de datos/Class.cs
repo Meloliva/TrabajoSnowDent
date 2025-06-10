@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Capa_de_datos
 {
-    public class Class1
+    public class Class
     {
     }
 }
