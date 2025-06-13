@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="SnowDentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="SnowDentModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CasoClinico">
           <Key>
             <PropertyRef Name="CasoId" />
@@ -28,6 +28,8 @@
           <Property Name="DNI_odo" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="Hora" Type="int" Nullable="false" />
+          <Property Name="EstadoCita" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoCita" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Odontologo">
           <Key>
@@ -203,8 +205,7 @@
             <End Role="SeguimientoTratamiento" EntitySet="SeguimientoTratamiento" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SnowDentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -237,6 +238,8 @@
           <NavigationProperty Name="Odontologo" Relationship="Self.FK_Cita_Odontologo" FromRole="Cita" ToRole="Odontologo" />
           <NavigationProperty Name="Recepcionista" Relationship="Self.FK_Cita_Paciente" FromRole="Cita" ToRole="Recepcionista" />
           <NavigationProperty Name="SeguimientoTratamiento" Relationship="Self.FK_SeguimientoTratamiento_Cita" FromRole="Cita" ToRole="SeguimientoTratamiento" />
+          <Property Name="EstadoCita" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TipoCita" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Odontologo">
           <Key>
@@ -443,6 +446,8 @@
           <EntitySetMapping Name="Cita">
             <EntityTypeMapping TypeName="SnowDentModel.Cita">
               <MappingFragment StoreEntitySet="Cita">
+                <ScalarProperty Name="TipoCita" ColumnName="TipoCita" />
+                <ScalarProperty Name="EstadoCita" ColumnName="EstadoCita" />
                 <ScalarProperty Name="CitaId" ColumnName="CitaId" />
                 <ScalarProperty Name="CasoId" ColumnName="CasoId" />
                 <ScalarProperty Name="DNI_re" ColumnName="DNI_re" />
