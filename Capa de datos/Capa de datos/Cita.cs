@@ -26,6 +26,8 @@ namespace Capa_de_datos
         public string DNI_odo { get; set; }
         public System.DateTime fecha { get; set; }
         public int Hora { get; set; }
+        public string EstadoCita { get; set; }
+        public string TipoCita { get; set; }
     
         public virtual CasoClinico CasoClinico { get; set; }
         public virtual Odontologo Odontologo { get; set; }
