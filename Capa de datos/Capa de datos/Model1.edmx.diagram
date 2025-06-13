@@ -19,6 +19,9 @@
         <AssociationConnector Association="SnowDentModel.FK_Cita_Paciente" ManuallyRouted="false" />
         <AssociationConnector Association="SnowDentModel.FK_Odontologo_Usuario" ManuallyRouted="false" />
         <AssociationConnector Association="SnowDentModel.FK_Recepcionista_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="SnowDentModel.FK_CasoClinico_Paciente" />
+        <AssociationConnector Association="SnowDentModel.FK_Cita_CasoClinico" />
+        <AssociationConnector Association="SnowDentModel.FK_SeguimientoTratamiento_Cita" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
